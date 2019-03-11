@@ -1,0 +1,10 @@
+<% @comedians.each do |comedian| %>
+  <section class="comedian-<%= comedian.id %>">
+    <img src="<%= comedian.thumbnail %>" alt="image of <%= comedian.name %>">
+    <ul>
+      <li>Name: <%= comedian.name %></li>
+      <li>City: <%= comedian.city %></li>
+      <li>Age: <%= comedian.age %></li>
+    </ul>
+  </section>
+<% end %>
