@@ -6,5 +6,13 @@
       <li>City: <%= comedian.city %></li>
       <li>Age: <%= comedian.age %></li>
     </ul>
+    <h3>Specials:</h3>
+    <% comedian.specials.each do |special| %>
+    <section class="special-<%= special.id %>">  
+        <img src="<%= special.thumbnail %>" alt="Cover for <%= special.title %>">
+        <h5>Title: <%= special.title %></h5>
+        <h5>Runtime: <%= special.length %></h5>
+      <% end %>
+    </section>
   </section>
 <% end %>
