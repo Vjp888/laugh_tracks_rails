@@ -42,6 +42,7 @@ RSpec.describe 'User visits the comedians show page' do
 
     within ".comedian-#{com_1.id}" do
       expect(page).to have_content("Specials:")
+      expect(page).to have_content("Number of Specials: 2")
       within ".special-#{spec_1.id}" do
         expect(page).to have_content("the stevshow")
         expect(page).to have_content("Runtime: 500")
@@ -56,6 +57,7 @@ RSpec.describe 'User visits the comedians show page' do
 
     within ".comedian-#{com_2.id}" do
       expect(page).to have_content("Specials:")
+      expect(page).to have_content("Number of Specials: 2")
       within ".special-#{spec_4.id}" do
         expect(page).to have_content("the fifth show")
         expect(page).to have_content("Runtime: 500")
