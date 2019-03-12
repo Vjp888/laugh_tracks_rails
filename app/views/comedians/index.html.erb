@@ -1,3 +1,17 @@
+<section class="statistics">
+  <h2>Average Comedian Age: <%= @average_age %></h2>
+  <h2>Average Special Runtime: <%= @average_runtime %></h2>
+
+  <section class="hometowns">
+    <h2>Hometowns: </h2>
+      <ul>
+        <% @cities.each do |city| %>
+        <li><%= city.city %></li>
+        <% end %>
+      </ul>
+  </section>
+</section>
+
 <% @comedians.each do |comedian| %>
   <section class="comedian-<%= comedian.id %>">
     <img src="<%= comedian.thumbnail %>" alt="image of <%= comedian.name %>">
@@ -8,7 +22,7 @@
     </ul>
     <h3>Specials:</h3>
     <% comedian.specials.each do |special| %>
-    <section class="special-<%= special.id %>">  
+    <section class="special-<%= special.id %>">
         <img src="<%= special.thumbnail %>" alt="Cover for <%= special.title %>">
         <h5>Title: <%= special.title %></h5>
         <h5>Runtime: <%= special.length %></h5>
