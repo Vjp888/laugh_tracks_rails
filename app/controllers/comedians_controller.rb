@@ -6,9 +6,8 @@ class ComediansController < ApplicationController
     else
       @comedians = Comedian.all
     end
-    @average_age = Comedian.average(:age)
-    @average_runtime = Special.average(:length)
+    @average_age = @comedians.average(:age)
+    @average_runtime = Special.where(comedian_id: @comedians.ids).average(:length).round(2)
     @cities = @comedians.select(:city).distinct
-    # binding.pry
   end
 end

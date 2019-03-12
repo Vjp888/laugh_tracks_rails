@@ -21,11 +21,12 @@
       <li>Age: <%= comedian.age %></li>
     </ul>
     <h3>Specials:</h3>
+    <p>Number of Specials: <%= comedian.specials.count %></p>
     <% comedian.specials.each do |special| %>
     <section class="special-<%= special.id %>">
         <img src="<%= special.thumbnail %>" alt="Cover for <%= special.title %>">
-        <h5>Title: <%= special.title %></h5>
-        <h5>Runtime: <%= special.length %></h5>
+        <p>Title: <%= special.title %></p>
+        <p>Runtime: <%= special.length %></p>
       <% end %>
     </section>
   </section>
