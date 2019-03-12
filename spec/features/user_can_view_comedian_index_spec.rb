@@ -91,4 +91,28 @@ RSpec.describe 'User visits the comedians show page' do
       expect(page).to have_content("town wown")
     end
   end
+
+  it 'Shows only comdeians of a specified age' do
+    com_1 = Comedian.create(name: "steve", city: "town town", age: 34, thumbnail: "steve.jpg")
+    com_2 = Comedian.create(name: "andrew", city: "town wown", age: 34, thumbnail: "steve.jpg")
+    com_3 = Comedian.create(name: "harvey", city: "town pown", age: 23, thumbnail: "steve.jpg")
+
+    visit '/comedians?age=34'
+
+    within ".comedian-#{com_1.id}" do
+      expect(page).to have_content("Name: steve")
+      expect(page).to have_content("City: town town")
+      expect(page).to have_content("Age: 34")
+    end
+
+    within ".comedian-#{com_2.id}" do
+      expect(page).to have_content("Name: andrew")
+      expect(page).to have_content("City: town wown")
+      expect(page).to have_content("Age: 34")
+    end
+
+    expect(page).to_not have_content("Name: harvey")
+    expect(page).to_not have_content("City: town pown")
+    expect(page).to_not have_content("Age: 23")
+  end
 end
