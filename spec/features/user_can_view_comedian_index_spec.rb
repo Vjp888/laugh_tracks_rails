@@ -99,6 +99,12 @@ RSpec.describe 'User visits the comedians show page' do
     com_2 = Comedian.create(name: "andrew", city: "town wown", age: 34, thumbnail: "steve.jpg")
     com_3 = Comedian.create(name: "harvey", city: "town pown", age: 23, thumbnail: "steve.jpg")
 
+    Special.create(title: "the stevshow", length: 300, thumbnail: "steve.jpg", comedian_id: com_1.id)
+    Special.create(title: "the second show", length: 600, thumbnail: "steve.jpg", comedian_id: com_1.id)
+
+    Special.create(title: "the fifth show", length: 400, thumbnail: "steve.jpg", comedian_id: com_2.id)
+    Special.create(title: "the sixth show", length: 800, thumbnail: "steve.jpg", comedian_id: com_3.id)
+
     visit '/comedians?age=34'
 
     within ".comedian-#{com_1.id}" do
@@ -111,6 +117,17 @@ RSpec.describe 'User visits the comedians show page' do
       expect(page).to have_content("Name: andrew")
       expect(page).to have_content("City: town wown")
       expect(page).to have_content("Age: 34")
+    end
+
+    within '.statistics' do
+      expect(page).to have_content("Average Comedian Age: 34")
+      expect(page).to have_content("Average Special Runtime: 433.33")
+    end
+
+    within '.hometowns' do
+      expect(page).to have_content("town town")
+      expect(page).to have_content("town wown")
+      expect(page).to_not have_content("town pown")
     end
 
     expect(page).to_not have_content("Name: harvey")
