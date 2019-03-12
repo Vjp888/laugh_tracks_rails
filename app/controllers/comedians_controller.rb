@@ -1,14 +1,24 @@
 class ComediansController < ApplicationController
 
   def index
-    if query_params
-      @comedians = Comedian.where(query_params)
-    else
-      @comedians = Comedian.all
-    end
+    @comedians = Comedian.where(query_params)
     @average_age = @comedians.average(:age)
     @average_runtime = Special.where(comedian_id: @comedians.ids).average(:length).round(2)
-    @cities = @comedians.select(:city).distinct
+    @cities = @comedians.select(:city).distinct.pluck(:city)
+  end
+
+  def new
+    @comedian = Comedian.new
+  end
+
+  def create
+    @comedian = Comedian.new(comedian_params)
+    @comedian.update(thumbnail: "https://financemd.files.wordpress.com/2015/08/facebook-default-no-profile-pic.jpg")
+    if @comedian.save
+      redirect_to comedians_path
+    else
+      render :new
+    end
   end
 
   private
