@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User visits the comedians show page' do
+RSpec.describe 'User visits the comedians index page' do
   it 'Shows a list of comdians' do
     com_1 = Comedian.create(name: "steve", city: "town town", age: 54, thumbnail: "steve.jpg")
     com_2 = Comedian.create(name: "andrew", city: "town wown", age: 43, thumbnail: "steve.jpg")
@@ -9,7 +9,7 @@ RSpec.describe 'User visits the comedians show page' do
     visit comedians_path
 
     within ".comedian-#{com_1.id}" do
-      # expect(page).to expect(page).to have_xpath("//img[@src='steve.jpg']")
+      expect(page).to have_xpath("//img[@src='steve.jpg']")
       expect(page).to have_content("Name: steve")
       expect(page).to have_content("Age: 54")
       expect(page).to have_content("City: town town")
@@ -46,12 +46,12 @@ RSpec.describe 'User visits the comedians show page' do
       within ".special-#{spec_1.id}" do
         expect(page).to have_content("the stevshow")
         expect(page).to have_content("Runtime: 500")
-        # expect(page).to expect(page).to have_xpath("//img[@src='steve.jpg']")
+        expect(page).to have_xpath("//img[@src='steve.jpg']")
       end
       within ".special-#{spec_2.id}" do
         expect(page).to have_content("the second show")
         expect(page).to have_content("Runtime: 500")
-        # expect(page).to expect(page).to have_xpath("//img[@src='steve.jpg']")
+        expect(page).to have_xpath("//img[@src='steve.jpg']")
       end
     end
 
@@ -61,12 +61,12 @@ RSpec.describe 'User visits the comedians show page' do
       within ".special-#{spec_4.id}" do
         expect(page).to have_content("the fifth show")
         expect(page).to have_content("Runtime: 500")
-        # expect(page).to expect(page).to have_xpath("//img[@src='steve.jpg']")
+        expect(page).to have_xpath("//img[@src='steve.jpg']")
       end
       within ".special-#{spec_5.id}" do
         expect(page).to have_content("the sixth show")
         expect(page).to have_content("Runtime: 600")
-        # expect(page).to expect(page).to have_xpath("//img[@src='steve.jpg']")
+        expect(page).to have_xpath("//img[@src='steve.jpg']")
       end
     end
   end
