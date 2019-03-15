@@ -81,7 +81,6 @@ RSpec.describe 'User visits the comedians index page' do
     Special.create(title: "the fifth show", length: 400, thumbnail: "steve.jpg", comedian_id: com_2.id)
     Special.create(title: "the sixth show", length: 800, thumbnail: "steve.jpg", comedian_id: com_2.id)
 
-
     visit comedians_path
 
     within '.statistics' do
