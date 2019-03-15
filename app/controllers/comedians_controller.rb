@@ -4,7 +4,7 @@ class ComediansController < ApplicationController
     @comedians = Comedian.where(query_params)
     @average_age = @comedians.average(:age)
     @average_runtime = Special.average_runtime(@comedians.ids)
-    @cities = @comedians.select(:city).distinct.pluck(:city)
+    @cities = @comedians.all_cities
   end
 
   def new
