@@ -31,3 +31,5 @@ class ComediansController < ApplicationController
     params.permit(:name, :age, :city)
   end
 end
+
+# Make city links clickable and filter out the comdians based on params

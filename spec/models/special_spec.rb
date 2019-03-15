@@ -25,7 +25,7 @@ RSpec.describe Special, type: :model do
         Special.create(title: "the fifth show", length: 400, thumbnail: "steve.jpg", comedian_id: com_2.id)
         Special.create(title: "the sixth show", length: 800, thumbnail: "steve.jpg", comedian_id: com_2.id)
 
-        expect(Special.average_runtime).to eq(510)
+        expect(Special.average_runtime).to eq(525)
         expect(Special.average_runtime(com_1.id)).to eq(450)
 
       end
