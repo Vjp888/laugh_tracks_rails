@@ -24,7 +24,7 @@ RSpec.describe Comedian, type: :model do
 
         comedians_cities = [com_3.city, com_1.city, com_2.city]
         comedian_cities_small = [com_3.city, com_2.city]
-ª
+
         expect(Comedian.all_cities).to eq(comedians_cities)
         expect(comedians_selcted.all_cities).to eq(comedian_cities_small)
       end
