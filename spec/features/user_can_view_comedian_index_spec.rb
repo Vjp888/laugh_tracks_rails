@@ -86,7 +86,7 @@ RSpec.describe 'User visits the comedians index page' do
 
     within '.statistics' do
       expect(page).to have_content("Average Comedian Age: 48.5")
-      expect(page).to have_content("Average Special Runtime: 510.0")
+      expect(page).to have_content("Average Special Runtime: 510")
     end
     within '.hometowns' do
       expect(page).to have_content("town town")
@@ -121,7 +121,7 @@ RSpec.describe 'User visits the comedians index page' do
 
     within '.statistics' do
       expect(page).to have_content("Average Comedian Age: 34")
-      expect(page).to have_content("Average Special Runtime: 433.33")
+      expect(page).to have_content("Average Special Runtime: 433")
     end
 
     within '.hometowns' do
