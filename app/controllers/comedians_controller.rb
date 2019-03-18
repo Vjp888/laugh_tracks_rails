@@ -2,7 +2,7 @@ class ComediansController < ApplicationController
 
   def index
     @comedians = Comedian.where(query_params)
-    @average_age = @comedians.average(:age)
+    @average_age = @comedians.average(:age).to_i
     @average_runtime = Special.average_runtime(@comedians.ids)
     @cities = @comedians.all_cities
   end

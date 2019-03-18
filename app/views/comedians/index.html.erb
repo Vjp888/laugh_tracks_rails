@@ -6,7 +6,7 @@
     <h2>Hometowns: </h2>
       <ul>
         <% @cities.each do |city| %>
-        <li><%= city %></li>
+        <li><%=link_to city, "/comedians?city=#{city}" %></li>
         <% end %>
       </ul>
   </section>
@@ -18,7 +18,7 @@
     <ul>
       <li>Name: <%= comedian.name %></li>
       <li>City: <%= comedian.city %></li>
-      <li>Age: <%= comedian.age %></li>
+      <li>Age: <%= link_to comedian.age, "/comedians?age=#{comedian.age}" %></li>
     </ul>
     <h3>Specials:</h3>
     <p>Number of Specials: <%= comedian.specials.count %></p>
