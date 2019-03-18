@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LaughTracksRails</title>
+    <title>Laugh Tracks</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/main.css">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
+  <header>
+    <nav class="nav-bar navbar">
+      <%= link_to "Home", comedians_path %>
+      <%= link_to "New Comedian", new_comedian_path %>
+    </nav>
+  </header>
 
   <body>
     <%= yield %>
