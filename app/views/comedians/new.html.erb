@@ -1,13 +1,17 @@
-<%= form_for @comedian do |f| %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :age %>
-  <%= f.text_field :age %>
-
-  <%= f.label :city %>
-  <%= f.text_field :city %>
-
-  <%= f.submit :Submit %>
+<section class="form-work">  
+  <%= form_for @comedian do |f| %>
+    <section class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </section>
+    <section class="form-group">
+      <%= f.label :age %>
+      <%= f.text_field :age %>
+    </section>
+    <section class="form-group">
+      <%= f.label :city %>
+      <%= f.text_field :city %>
+    </section>
+    <%= f.submit :Submit %>
   <% end %>
+</section>

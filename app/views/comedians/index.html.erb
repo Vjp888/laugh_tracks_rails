@@ -1,33 +1,40 @@
-<section class="statistics">
-  <h2>Average Comedian Age: <%= @average_age %></h2>
-  <h2>Average Special Runtime: <%= @average_runtime %></h2>
-
-  <section class="hometowns">
-    <h2>Hometowns: </h2>
-      <ul>
-        <% @cities.each do |city| %>
-        <li><%=link_to city, "/comedians?city=#{city}" %></li>
-        <% end %>
-      </ul>
-  </section>
-</section>
-
-<% @comedians.each do |comedian| %>
-  <section class="comedian-<%= comedian.id %>">
-    <img src="<%= comedian.thumbnail %>" alt="image of <%= comedian.name %>">
-    <ul>
-      <li>Name: <%= comedian.name %></li>
-      <li>City: <%= comedian.city %></li>
-      <li>Age: <%= link_to comedian.age, "/comedians?age=#{comedian.age}" %></li>
-    </ul>
-    <h3>Specials:</h3>
-    <p>Number of Specials: <%= comedian.specials.count %></p>
-    <% comedian.specials.each do |special| %>
-    <section class="special-<%= special.id %>">
-        <img src="<%= special.thumbnail %>" alt="Cover for <%= special.title %>">
-        <p>Title: <%= special.title %></p>
-        <p>Runtime: <%= special.length %></p>
-      <% end %>
+  <section class="statistics">
+    <section class="comedian-age">
+      <h2>Average Comedian Age: <%= @average_age %></h2>
+    </section>
+    <section class="runtime">
+      <h2>Average Special Runtime: <%= @average_runtime %></h2>
+    </section>
+    <section class="hometowns">
+      <h2>Hometowns: </h2>
+        <ul>
+          <% @cities.each do |city| %>
+          <li><%=link_to city, "/comedians?city=#{city}" %></li>
+          <% end %>
+        </ul>
     </section>
   </section>
-<% end %>
+
+<section class="index-wrapper">
+  <% @comedians.each do |comedian| %>
+    <section class="comedian-<%= comedian.id %> comedians" style= "">
+      <img src="<%= comedian.thumbnail %>" alt="image of <%= comedian.name %>" class="">
+      <section class="">
+        <h5 class="">Name: <%= comedian.name %></h5>
+        <ul class="">
+          <li>City: <%= comedian.city %></li>
+          <li>Age: <%= link_to comedian.age, "/comedians?age=#{comedian.age}" %></li>
+        </ul>
+        <h3>Specials:</h3>
+        <p>Number of Specials: <%= comedian.specials.count %></p>
+        <% comedian.specials.each do |special| %>
+        <section class="special-<%= special.id %>">
+            <img src="<%= special.thumbnail %>" alt="Cover for <%= special.title %>">
+            <p>Title: <%= special.title %></p>
+            <p>Runtime: <%= special.length %></p>
+          <% end %>
+        </section>
+      </section>
+    </section>
+  <% end %>
+</section>
